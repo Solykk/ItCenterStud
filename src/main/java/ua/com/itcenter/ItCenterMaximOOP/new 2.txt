@@ -1,0 +1,35 @@
+[13:19:22] Кузменюк Максим: public class Task7 {
+ public static void main(String[] args) throws Exception{
+  FileWriter fw = new FileWriter("file1.txt");
+  fw.write("stroka 1\n      strok2\n");// \r \r\n
+  fw.write("\tstroka 3");
+  fw.flush();
+  fw.close();
+ } 
+}
+[13:19:29] Кузменюк Максим: import java.io.FileReader;
+import java.util.Scanner;
+
+public class Task8 {
+ public static void main(String[] args) throws Exception{
+  FileReader fr = new FileReader("file1.txt");
+  Scanner scan = new Scanner(fr);
+  int i = 0;
+  while (scan.hasNextLine()) {
+   System.out.println("строка с номером :" + (++i)+": " + scan.nextLine());
+  }
+  scan.close();
+ }
+}
+Обзор:
+1.  Примитивные типы: byte, short, int, long, float, double, char, boolean
+2.  Ветвление: if, else if, else
+3.  Циклы: for, while, do while, for-each
+4. Math.random(), Math.sqrt( a )
+5. System.out.print("")  System.out.println("")
+6. Одномерные массивы
+7. Scanner: nextInt(), nextDouble(), next(), nextLine(), 
+8.  Валидация Scanner: hasNextInt(), hasNextDouble(), hasNext(), hasNextLine(), 
+8. Символы: (int)('a')  - код символа 'a', (char)(98) - символ с кодом 98
+9. String: length(), indexOf(3, 6), substring("g"), charAt(int index), equals("")
+10. Методы: возвращает значение, передача параметров как примитив и как объект

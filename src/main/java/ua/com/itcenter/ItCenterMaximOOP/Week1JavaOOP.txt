@@ -1,0 +1,261 @@
+[11.10.2015 11:48:32 | Изменены 11:48:42] Кузменюк Максим: Обзор:
+1.  Примитивные типы: byte, short, int, long, float, double, char, boolean
+2.  Ветвление: if, else if, else
+3.  Циклы: for, while, do while, for-each
+4. Math.random(), Math.sqrt( a )
+5. System.out.print("")  System.out.println("")
+6. Одномерные массивы
+7. Scanner: nextInt(), nextDouble(), next(), nextLine(), 
+8.  Валидация Scanner: hasNextInt(), hasNextDouble(), hasNext(), hasNextLine(), 
+8. Символы: (int)('a')  - код символа 'a', (char)(98) - символ с кодом 98
+9. String: length(), indexOf(int index), substring(""), charAt(int index), equals("")
+10. Методы: возвращает значение, передача параметров как примитив и как объект
+[11.10.2015 11:48:49] Кузменюк Максим: import java.util.Scanner;
+/* 
+Ввести с консоли целое число, вывести удвоенное на экран.
+ */
+public class Task1 {
+ public static void main(String[] args){
+  Scanner scan = new Scanner(System.in);
+  int m = scan.nextInt();
+  {
+   int count = 0;
+  }
+  //count++;
+  int resultat = m * 2;
+  System.out.println(resultat);
+ }
+}
+[11.10.2015 11:48:57] Кузменюк Максим: public class Task2 {
+ 
+ public static void main(String[] args) {
+  String s2 = new String("asda");
+  String s = "abcdefg";
+
+  // определяет длину строки
+  int k = s.length();//7 
+  
+  // s.charAt( indexA) - возвращает символ строки s, который находится под индексом indexA 
+  char c1 = s.charAt(0);// 'a'
+  char c2 = s.charAt(2);// 'c'
+  
+  // s.indexOf( str) возвращает индекс из строки s , где начинается подстрока str  
+  int k1 = s.indexOf( "ab" ); // 0
+  int k2 = s.indexOf( "de" ); // 3
+  int k3 = s.indexOf( "af" ); //-1
+  
+  //s.substring(indexA, indexB) - возвращает подстроку, которая начинается с indexA по indexB не включительно
+  String s1 = s.substring( 2, 6); // "cdef"
+  
+  //s.equals(s1) - сравнение строк
+  if(s1.equals(s)) System.out.println("строки равные");
+    else System.out.println("строки разные");
+ }
+}
+[11.10.2015 11:56:21] Кузменюк Максим: public class StringMethods {
+ public static void main(String[] args) {
+  String s="";
+  s.equalsIgnoreCase("a");
+  s.endsWith("end");
+  s.startsWith("begin");
+  s.trim();
+  s.toUpperCase();
+  s.toLowerCase();
+  s.isEmpty();
+  String[] arr = s.split(",");// "ab,,cd,ef"
+  char[] arr1 = s.toCharArray();
+ }
+}
+[11.10.2015 12:00:14 | Изменены 12:01:37] Кузменюк Максим: Task3. Ввести с консоли строку с символами и пробелами. Посчитать количество слов в предложении.
+
+Task4. Написать программу состоящую из методов:
+ - метод, считывает с консоли строку и возвращает ее
+ - метод, считывает с консоли символ и возращает его
+ - метод, принимает строку и символ, делает поиск символа в строке, возвращает индекс последнего вхождения символа в строке
+ - главный метод, только вызовы методов.
+
+Task5. Написать метод boolean myEquals, который принимает две строки.(не используя equals)
+
+Task6. Написать метод int MyIndexOf, который принимает две строки.(не используя indexOf)
+[11.10.2015 12:10:52] Кузменюк Максим: public class Task4 {
+ public static String inputString(){
+ }
+ public static char  inputSymvol(){
+ }
+ public static int getCountSymvolByString(String s, char c){
+ }
+ public static void main(String[] args) {
+  String str = inputString();
+  char d = inputSymvol();
+  int res = getCountSymvolByString(str,d);
+  System.out.println("кол-во символов [" + d + "] в строке ["+str + "] = " + res);
+ }
+ 
+}
+[11.10.2015 12:31:38] *** Кузменюк Максим добавил Олександр Яковенко к этому чату ***
+[11.10.2015 13:19:22] Кузменюк Максим: import java.io.FileWriter;
+
+public class Task7 {
+ public static void main(String[] args) throws Exception{
+  FileWriter fw = new FileWriter("file1.txt");
+  fw.write("stroka 1\n      strok2\n");// \r \r\n
+  fw.write("\tstroka 3");
+  fw.flush();
+  fw.close();
+ } 
+}
+[11.10.2015 13:19:29] Кузменюк Максим: import java.io.FileReader;
+import java.util.Scanner;
+
+public class Task8 {
+ public static void main(String[] args) throws Exception{
+  FileReader fr = new FileReader("file1.txt");
+  Scanner scan = new Scanner(fr);
+  int i = 0;
+  while (scan.hasNextLine()) {
+   System.out.println("строка с номером :" + (++i)+": " + scan.nextLine());
+  }
+  scan.close();
+ }
+}
+[11.10.2015 13:19:39 | Изменены 13:28:02] Кузменюк Максим: Task9. Шифр Цезаря с ключом например 3.
+Написать метод, который принимает имя файла и шифрует содержимое файла шифром Цезаря.
+Реализовать Шифрование (каждый символ смещается по таблице символов на 3 элемента вправо А в D)
+ и Дешифрование (каждый символ смещается по таблице символов на 3 элемента влево E в B)
+ Например: abc15 -> def48
+ Изначально файл содержит несколько строк. Пробеллы и переходы на следующую строку не шифруются.
+
+Task10.
+1) Написать метод, который в качестве параметра принимает имя файла.
+Метод1 возвращает двухмерный массив (String): имена переменных и значение.
+
+В файле набор переменных указаны так:
+;v=[156],ghg,hg;m=[12],tytuyr894848;vector=[qwe]; 
+Существуют правила форматирования текста в файле:
+ - имя переменной всегда стоит между симвоами ';' и '='
+ - значение переменной всегда идет после знака '=' и заключено в квадратные кавычки
+ - все что идет после квадратных кавычек до ';' являются служебными символами и в данной задаче они игнорируются
+
+Метод2 принимает двухмерный массив и имя файла, метод записывает в файл эти переменные согласно формату.
+
+Метод 3 выводит двухмерный массив на экран.
+[11:26:52] *** Кузменюк Максим добавил Artem Sobolev к этому чату ***
+[11:27:03 | Изменены 11:27:17] Кузменюк Максим: import java.util.ArrayList;
+
+public class Task1 {
+ public static void main(String[] args) {
+  ArrayList<Integer> list = new ArrayList<Integer>();
+  list.add(20); // Боксинг
+  
+  Integer p = new Integer(25);
+  list.add(p); // индекс 1
+  
+  System.out.println("size="+list.size());
+  
+  Integer k = list.get( 0 );
+  int k1 = list.get( 0 ); // анбоксинг
+  
+  System.out.println(list);  
+ }
+}
+[11:28:16] Кузменюк Максим: Task 2. Написать метод заполнения списка случайными целыми числами от 0 до 100.
+ Метод принимает список и кол-во элементов.
+
+Task 3. Метод, который выводит список на экран. 
+ Формат вывода:
+ [0] = 10
+ [1] = 20
+ [2] = 30
+
+ Task 4. Метод, который вставляет элемент внутрь списка и возвращает его.
+ insertElement(ArrayList<Integer> vector, int index, Integer element) 
+
+ Task 5. Метод, который ищет элемент в списке и возвращает кол-во этих элементов.
+ getCountElementByArrayList(ArrayList<Integer> vector, Integer element)
+[11:30:42] Кузменюк Максим: Math.random()
+[11:33:14] Кузменюк Максим: 1.
+[11:34:39] *** Кузменюк Максим удалил (-а) Artem Sobolev из этого разговора. ***
+[11:34:41] *** Кузменюк Максим добавил Artem Sobolev к этому чату ***
+[11:34:49] Кузменюк Максим: 1
+[11:39:56] *** Пользователь Кузменюк Максим переименовал этот разговор в "Base25.it-centre" ***
+[11:44:52] Artem Sobolev: 1
+[12:16:56] Кузменюк Максим: Task 6. Дополнить классы Car и MainCar. 
+Для автомобиля добавить цвет(String) и обновить метод printAboutMe.
+Создать в MainCar 3 автомобиля, установить им цвета и номера.
+Вывести на экран состояние каждого объекта.
+[12:21:11] Кузменюк Максим: http://jon.com.ua/
+[12:21:49] Кузменюк Максим: BTMja7c/lusqXB9/7LiIuypWxRE=
+[12:32:38] basileuse: I/O error on POST request for "http://localhost/gitblit/rpc?req=CREATE_USER&name=vasiliy_toporinskiy":Read timed out; nested exception is java.net.SocketTimeoutException: Read timed out
+[13:15:13] Кузменюк Максим: public class Car {
+ String number;
+ String color;
+ int countHuman;
+ public void printAboutMe(){
+  System.out.println("Я авто с номером "+number+" и цветом "+color+
+    " кол-во людей " + countHuman);
+ }
+ public Car(){
+  this("default","default");
+ }
+ public Car(String number){
+  this(number, "default");
+ }
+ public Car(String number, String color) {
+  this.number = number;
+  this.color = color;
+  countHuman = 0;
+ }
+ public void addHuman(int count){
+  countHuman += count;
+ } 
+}
+[13:15:24] Кузменюк Максим: public class MainCar {
+ public static void main(String[] args) {
+  Car car1 = new Car();
+  Car car2 = new Car("BB 2222");
+  Car car3 = new Car("CC 3333", "Black");
+  
+  car1.number = "AA 1111";
+  
+  car1.addHuman(2);
+  car2.addHuman(-1);
+  
+  car1.printAboutMe();
+  car2.printAboutMe();
+  car3.printAboutMe();
+ }
+}
+[13:21:20] Кузменюк Максим: Task 8. Дополнить классы Car и MainCar. 
+Методы: start,move() stop(). Эти методы выводят на экран сообщение:
+авто с номером таким-то завелась/начала движение/остановилась(с выключением двигателя).
+Для автомобиля эти методы должны менять состояние авто(заводим соответсвующе поле/поля)
+start:
+  - авто такое-то не могу завестись так как уже заведена 
+  - авто такое-то не могу завестись так как уже еду 
+move:
+  - авто такое-то не могу ехать так как уже еду 
+  - авто такое-то не могу ехать так как еще не заведена 
+stop:
+  - авто такое-то не могу остановиться так как не еду 
+
+В MainCar: 
+  - создать 3 авто
+  - все 3 авто завести
+  - 2 авто поехали
+  - все 3 авто остановитьл
+[13:58:11] Кузменюк Максим: Task 9. Lift MainLift.
+Будем считать, что все люди в дом попадают только через лифт, убывают тем же способом.
+В доме есть лестница, которой могут пользоваться люди в доме.
+Поля объекта Lift не менять напрямую.(только через метод)
+На первом этаже тех этаж(тут люди не живут).
+Поля: 
+ - текущий этаж curFloat
+ - общее количество этажей перемещения countFloat
+ - общее количество перевезенных людей countPeople
+ - количество людей находящихся в данный момент в доме. curPeople
+У лифта методы: 
+    - метод перемещения лифта с номером этажа для перемещения nextFloor и количеством человек countHuman: 
+  move(int nextFloor, int countHuman)
+ - метод выводящий состояние лифта(значение всех полей объекта): printAboutMe()
+В главном классе создать объект лифта, и вызвать 10 раз метод move (с рандомными значениями) и после каждого 
+перемещения вызываем метод printAboutMe.
