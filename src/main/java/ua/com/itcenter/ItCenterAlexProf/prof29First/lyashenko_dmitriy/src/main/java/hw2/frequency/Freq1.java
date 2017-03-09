@@ -22,12 +22,12 @@ import java.util.*;
 
  Класс задания hw2.frequency.Freq
  */
-public class Freq{
+public class Freq1{
 
     private String text = "";
     private Set<String> textSetString;
 
-    public Freq(){    }
+    public Freq1(){    }
 
     public String getText() {
         return text;
@@ -266,7 +266,7 @@ public class Freq{
 
 
     public static void main(String[] args) {
-        Freq freq = new Freq();
+        Freq1 freq = new Freq1();
        // freq.setTextFromConsole();
         freq.setTextFromFile("C:\\Users\\Solyk\\IdiaProjects\\Proff29\\proff29\\lyashenko_dmitriy\\src\\main\\resources\\FileTestText.txt");
       //  System.out.println(freq.getText());
